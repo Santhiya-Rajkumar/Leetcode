@@ -1,0 +1,19 @@
+class Solution {
+    public int findNthDigit(int n) {
+        long dig=1;
+        long st=1;
+        long cnt=9;
+        while(n > dig*cnt){
+            n-= (dig*cnt);
+            dig++;
+            
+            cnt*=10;
+            st*=10;
+        }
+        long num=st+(n-1)/dig;
+        String str=Long.toString(num);
+        int ind=(n-1)%(int)dig;
+        char ch=str.charAt(ind);
+        return ch-'0';
+            }
+}
