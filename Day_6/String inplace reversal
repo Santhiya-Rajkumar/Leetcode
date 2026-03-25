@@ -1,0 +1,19 @@
+import java.util.*;
+public class patterns {
+        public static void main(String[] args) {
+            Scanner sc=new Scanner(System.in);
+            String str=sc.nextLine();
+            char[] c=str.toCharArray();
+            int l=0;
+            int r=str.length()-1;
+            while(l<r){
+                char temp=c[l];
+                c[l]=c[r];
+                c[r]=temp;
+                l++;
+                r--;
+            }
+            System.out.println(new String(c));
+            
+        }
+}
