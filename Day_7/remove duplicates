@@ -1,0 +1,30 @@
+input:
+Programming
+output:
+progamin
+
+import java.util.*;
+class CountOf_Each_Char_WOBuildin{
+    public static void main(String[] args){
+        Scanner z=new Scanner(System.in);
+        String s=z.nextLine();
+        String str="";
+        for(int i=0;i<s.length();i++) {
+            boolean flag = false;
+            char ch = s.charAt(i);
+            for (int k = 0; k < i; k++) {
+                if (s.charAt(k) == ch) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag == true) {
+                continue;
+            } else {
+                str += ch;
+            }
+        }
+            System.out.print(str);
+    }
+}
+
