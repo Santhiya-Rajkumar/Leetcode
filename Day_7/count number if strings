@@ -1,4 +1,10 @@
-without inbuilt
+input:
+hi hello guys
+
+output:
+3
+
+//without inbuilt
 import java.util.*;
 class Main
 {
@@ -25,7 +31,7 @@ class Main
     }
 }
 
-with inbuilt
+//with inbuilt
 import java.util.*;
 class Main
 {
