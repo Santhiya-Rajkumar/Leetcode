@@ -1,0 +1,44 @@
+without inbuilt
+import java.util.*;
+class Main
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        // your code goes here
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+      
+        boolean fl=true;
+        int cnt=0;
+        for(int i=0;i<s.length()-1;i++) {
+            char ch = s.charAt(i);
+            if (ch != ' ') {
+                if (fl==true) {
+                    cnt++;
+                    fl = false;
+                }
+            } else {
+                fl = true;
+            }
+        }
+        System.out.print(cnt);
+    }
+}
+
+with inbuilt
+import java.util.*;
+class Main
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        // your code goes here
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        s=s.trim();
+        String[] str=s.split("\\s+");
+        if(s.isEmpty())
+            System.out.println("0");
+        else
+            System.out.println(str.length);
+}
+}
