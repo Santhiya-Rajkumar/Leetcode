@@ -1,3 +1,19 @@
+input:
+hi hello guys
+output:
+h:2
+i:1
+ :2
+e:1
+l:2
+l:1
+o:1
+g:1
+u:1
+y:1
+s:1
+
+
 //with using frequency array
 import java.util.*;
 class day7 {
