@@ -1,0 +1,37 @@
+class Work extends Thread {
+
+    @Override
+    public void run() {
+        System.out.println("Thread 1 is working");
+    }
+}
+
+public class Main {
+    public static void main(String[] args)  {
+
+        System.out.println("Main thread is working");
+
+        Work t1 = new Work();
+        t1.start();   // start new thread
+
+          // wait for t1 to finish (optional)
+
+        System.out.println("Main thread is working");
+        System.out.println("Main thread is working");
+        System.out.println("Main thread is working");
+        System.out.println("Main thread is working");
+        System.out.println("Main thread is working");
+        System.out.println("Main thread is working");
+    }
+}
+
+output:
+
+Main thread is working
+Main thread is working
+Main thread is working
+Main thread is working
+Thread 1 is working
+Main thread is working
+Main thread is working
+Main thread is working
