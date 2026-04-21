@@ -1,0 +1,37 @@
+
+import java.time.*;
+
+public class timefeature {
+
+    public static void main(String[] args) {
+        LocalTime l = LocalTime.now();
+        System.out.println(l);
+        LocalDate l1 = LocalDate.now();
+        System.out.println(l1);
+        ZonedDateTime z = ZonedDateTime.now();
+        System.out.println(z);
+        LocalDateTime dt = LocalDateTime.now();
+        System.out.println(dt);
+        // custom date
+        LocalDate t = LocalDate.of(2024, 6, 20);
+        System.out.println(t);
+        // add 5 days to the date
+        LocalDate l2 = l1.plusDays(5);
+        System.out.println(l2);
+        // subtract 2 months from the date
+        LocalDate l3 = l2.minusMonths(2);
+        System.out.println(l3);
+
+    }
+}
+
+
+output:
+
+10:17:42.672049500
+2026-04-21
+2026-04-21T10:17:42.675067900+05:30[Asia/Calcutta]
+2026-04-21T10:17:42.676062400
+2024-06-20
+2026-04-26
+2026-02-26
