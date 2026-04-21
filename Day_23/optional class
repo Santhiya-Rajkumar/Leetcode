@@ -1,0 +1,42 @@
+
+import java.util.*;
+
+public class Optionalcode {
+
+    public static void main(String[] args) {
+
+        // String name = null;
+        // System.out.println(name.length());
+        // String name = null;
+        // if(name != null){
+        //     System.out.println("hi");
+        // }
+        // String name = "java";
+        // Optional<String> op = Optional.ofNullable(name);
+        // System.out.println(op);
+        // Optional<String> op = Optional.ofNullable(null);
+        // String res = op
+        //         .map(String::toUpperCase)
+        //         .orElse("No name");
+        // System.out.println(res);
+        // List<String> s = Arrays.asList("java", "hi", null);
+        // Optional<String> op = s.stream().findFirst();
+        // String res = op
+        //         .map(String::toUpperCase)
+        //         .orElse("no data");
+        // System.out.println(res);
+        // List<String> l = Arrays.asList("java", "stream", null);
+        // List<String> res = l.stream()
+        //         .map(s -> Optional.ofNullable(s))
+        //         .map(opt -> opt.map(String::toUpperCase).orElse("no data"))
+        //         .collect(Collectors.toList());
+        // System.out.println(res);
+        List<String> s = Arrays.asList("java", "api", "stream");
+        String res = s.stream()
+                .filter(a -> a.length() > 5)
+                .findFirst()
+                .orElse("not found");
+
+        System.out.println(res);
+    }
+}
