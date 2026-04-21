@@ -1,0 +1,144 @@
+//connection :
+in sql worlspace
+step 1.create database jdbc;
+step 2.use jdbc;
+
+step 3.in intellij(create)
+import java.sql.*;
+
+public class Main {
+    public static void main(String[] args) throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/jdbc";
+        String user = "root";
+        String password = "Santhiya@3011";
+
+        Connection con = DriverManager.getConnection(url, user, password);
+        System.out.print("Connection has established");
+    }
+}
+
+step 4.in sql
+CREATE TABLE student (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+
+step 5.in intellij(run this 5 times -to insert values 5 times)
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Main {
+    public static void main(String[] args) throws SQLException {
+
+        String url = "jdbc:mysql://localhost:3306/jdbc";
+        String user = "root";
+        String password = "tiger";
+
+        Connection con = DriverManager.getConnection(url, user, password);
+
+        String s = "INSERT INTO student(name, age) VALUES(?, ?)";
+
+        PreparedStatement ps = con.prepareStatement(s);
+        ps.setString(1, "Rocky");
+        ps.setInt(2, 22);
+
+        int row = ps.executeUpdate();
+        System.out.println(row);
+
+        con.close();
+    }
+}
+
+step 6.in sql workspace
+
+select * from Student;
+output in sql worspace:
+1	Rocky	22
+2	Rocky	22
+3	Rocky	22
+4	Rocky	22
+5	Rocky	22
+
+for output in intellij:
+import java.sql.*;
+
+public class Main {
+    public static void main(String[] args) throws SQLException {
+
+        String url = "jdbc:mysql://localhost:3306/jdbc";
+        String user = "root";
+        String password = "tiger";
+
+        Connection con = DriverManager.getConnection(url, user, password);
+
+        String s = "SELECT * FROM student";
+        Statement stm = con.createStatement();
+        ResultSet r = stm.executeQuery(s);
+
+        while (r.next()) {
+            System.out.println(
+                r.getInt("id") + " " +
+                r.getString("name") + " " +
+                r.getInt("age")
+            );
+        }
+
+        con.close();
+    }
+}
+
+step 7:in intellij(update)
+
+import java.sql.*;
+
+public class Main {
+    public static void main(String[] args) throws SQLException {
+
+        String url = "jdbc:mysql://localhost:3306/jdbc";
+        String user = "root";
+        String password = "Santhiya@3011";
+
+        Connection con = DriverManager.getConnection(url, user, password);
+
+        String s = "UPDATE student SET age=? WHERE id=?";
+        PreparedStatement ps=con.prepareStatement(s);
+        ps.setInt(1,25);
+        ps.setInt(2,1);
+        int r=ps.executeUpdate();
+        con.close();
+
+        
+    }
+}
+
+step 8:in intellij(delete)
+
+import java.sql.*;
+
+public class Main {
+    public static void main(String[] args) throws SQLException {
+
+        String url = "jdbc:mysql://localhost:3306/jdbc";
+        String user = "root";
+        String password = "Santhiya@3011";
+
+        Connection con = DriverManager.getConnection(url, user, password);
+
+        String s = "DELETE from student WHERE id=?";
+        PreparedStatement ps=con.prepareStatement(s);
+        ps.setInt(1,1);
+        int r=ps.executeUpdate();
+        con.close();
+    }
+}
+
+output in sql:
+2	Rocky	22
+3	Rocky	22
+4	Rocky	22
+5	Rocky	22
+		
+		
