@@ -1,0 +1,111 @@
+1))  to uppercase
+
+code:
+import java.util.*;
+import java.util.stream.*;
+
+class Uppercase {
+
+    public static void main(String[] args) {
+        List<String> l = Arrays.asList("Java", "You", "Me");
+        List<String> res = l.stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+        System.out.println(res);
+    }
+}
+output:
+
+[JAVA, YOU, ME]
+-----------------------------------------------------------------------
+
+2) get even
+
+code:
+import java.util.stream.*;
+import java.util.*;
+class Even{
+    public static void main(String[] args){
+        List<Integer> l=Arrays.asList(11,12,13,14,15,16);
+        List<Integer> res=l.stream()
+        .filter(x->x%2==0)
+        .collect(Collectors.toList());
+        System.out.println(res);
+    }
+}
+
+output:
+[12, 14, 16]
+-----------------------------------------------------------------------
+
+
+3))convert list of string to remove duplicates
+
+code:
+import java.util.*;
+import java.util.stream.*;
+
+class RemoveDuplicates {
+    public static void main(String[] args) {
+        List<String> l = Arrays.asList("Java", "You", "Me", "Java", "Me");
+
+        // Remove duplicates using distinct()
+        List<String> res = l.stream()
+                .distinct()
+                .collect(Collectors.toList());
+
+        System.out.println(res);
+    }
+}
+
+output:
+[Java, You, Me]
+
+--------------------------------------------------------------------------
+
+4))
+count frequency of each element in list
+
+import java.util.*;
+import java.util.stream.*;
+
+class FrequencyCount {
+
+    public static void main(String[] args) {
+        List<String> l = Arrays.asList("apple", "banana", "apple", "orange", "banana", "apple");
+
+        // Count frequency of each element
+        Map<String, Long> freq = l.stream()
+                .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+
+        System.out.println(freq);
+    }
+}
+
+output:
+{orange=1, banana=2, apple=3}
+---------------------------------------------------------------------------
+5)) find 2nd highest number
+
+code:
+
+import java.util.*;
+
+class SecondHighest {
+
+    public static void main(String[] args) {
+        List<Integer> l = Arrays.asList(11, 12, 13, 14, 15, 16);
+
+        // Find 2nd highest using streams
+        Optional<Integer> secondHighest = l.stream()
+                .sorted(Comparator.reverseOrder())
+                .skip(1)
+                .findFirst();
+
+        System.out.println(secondHighest.orElse(null));
+    }
+}
+
+
+output:
+15
